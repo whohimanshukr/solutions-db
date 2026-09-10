@@ -6,20 +6,20 @@ class Solution {
         // Track the maximum streak of 1s found so far
         int max = 0;
 
-        // Iterate through each element in the input array
-        for(int i = 0 ; i < nums.length ; i++){
-            // If the current element is 1, increment the current streak
-            if(nums[i] == 1){
+        // Iterate through each element in the input array using an enhanced for-loop
+        for (int num : nums) {
+            if (num == 1) {
+                // Increment current streak counter for every 1 encountered
                 count++;
-                // Update the maximum streak if the current streak exceeds it
-                max = Math.max(max, count);
             } else {
-                // Reset the current streak counter when a 0 is encountered
+                // When a 0 breaks the streak, record the highest count seen so far
+                max = Math.max(max, count);
+                // Reset current streak counter for the next sequence
                 count = 0;
             }
         }
 
-        // Return the highest number of consecutive 1s found
-        return max;
+        // Final check: update max to account for a streak ending at the very last element
+        return Math.max(max, count);
     }
 }
