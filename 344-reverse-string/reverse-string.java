@@ -37,12 +37,12 @@ class Solution {
         while (left < right) {
             // Three-step swap using temp variable
             char temp = s[left];
-            s[left] = s[right];
-            s[right] = temp;
+            s[left++] = s[right];
+            s[right--] = temp;
 
             // Step pointers inward
-            left++;
-            right--;
+            // left++;
+            // right--;
         }
     }
 }
